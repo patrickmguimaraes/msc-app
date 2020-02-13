@@ -1,0 +1,23 @@
+apiVersion: serving.knative.dev/v1alpha1
+kind: Service
+metadata:
+  name: ibmmscpatrick
+  namespace: default
+spec:
+  template:
+    spec:
+      containers:
+        - image: 'REGISTRY_URL/replace-me-namespace/ibmmscpatrick:BUILD_NUMBER'
+          ports:
+            - containerPort: 3000
+          env:
+            - name: service_cloudant
+              valueFrom:
+                secretKeyRef:
+                  name: binding-ibm-msc-patrick
+                  key: binding
+            - name: service_watson_conversation
+              valueFrom:
+                secretKeyRef:
+                  name: binding-watson assistant-3u
+                  key: binding
