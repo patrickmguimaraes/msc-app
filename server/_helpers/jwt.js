@@ -11,8 +11,10 @@ function jwt() {
             /^\/public\/.*/, //allow all files on /public domain
             {url: '/user/authenticate', methods: ['POST']}, //alow the user to authenticate
             {url:  '/user/create', methods: ['POST']}, //allow someone to create an account
-            //{url:  '/ticket/create', methods: ['POST']}, //allow someone to create a ticket
-            {url:  '/ticket/:_id', methods: ['GET']}, //allow someone to get tickets
+            {url:  '/ticket/create', methods: ['POST']}, //allow someone to create a ticket
+            //{url:  '/ticket/:_id', methods: ['GET']}, //allow someone to get tickets
+            {url:  '/watson/session', methods: ['GET']}, 
+            {url:  '/watson/message', methods: ['POST']},
             //{url: '/user', methods: ['GET']}, //a get example
             //{url:  '/user/:_id', methods: ['GET']} //a get with id example
         ]

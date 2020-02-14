@@ -1,9 +1,8 @@
-const appName = require('./../package').name;
 const http = require('http');
 const express = require('express');
+const config = require('./config/config.json');
 const bodyParser = require('body-parser');
 const log4js = require('log4js');
-const config = require('./config/config.json');
 const path = require('path');
 var cors = require('cors');
 const jwt = require('./_helpers/jwt');
@@ -12,15 +11,8 @@ var pathArquivos = __dirname.replace("\server", "") + 'public';
 const app = express();
 
 //Logger
-
-//firts time
-//log4js.configure({
-//	appenders: { cheese: { type: 'file', filename: 'cheese.log' } },
-//	categories: { default: { appenders: ['cheese'], level: 'error' } }
-  //});
-
 const logger = log4js.getLogger("logger");
-logger.level = process.env.LOG_LEVEL || 'info';
+logger.level = 'info';
 app.use(log4js.connectLogger(logger, { level: logger.level }));
 
 //Config public path for read files on the server side
@@ -37,19 +29,16 @@ app.use(jwt());
 
 //Controllers and services
 const server = http.createServer(app);
-const serviceManager = require('./services/service-manager');
 require('./services/index')(app);
 require('./routes/index')(app, server);
-
-//Controllers
-//app.use('/users', require('./routes/user.controller'));
+require('./ibm-watson-app')(app); //Call Watson App
 
 // global error handler
 app.use(errorHandler);
 
-const port = process.env.PORT || config.port;
+const port = config.PORT;
 server.listen(port, function(){
-  logger.info("IBM-MSC-PATRICK listening on " + config.apiUrl);
+  logger.info("MSC Server listening on " + config.API_URL);
 });
 
 app.use(function (req, res, next) {

@@ -1,9 +1,9 @@
 var _ = require('lodash');
 var Q = require('q');
+const config = require('../config/config.json');
 var Cloudant = require('@cloudant/cloudant');
-const localConfig = require('../config/config.json');
-var username = localConfig.cloudant_username || "nodejs";
-var password = localConfig.cloudant_password;
+var username = config.CLOUDANT_USERNAME;
+var password = config.CLOUDANT_PASSWORD;
 var cloudant = Cloudant({ account: username, password: password });
 const log4js = require('log4js');
 const logger = log4js.getLogger("logger");
@@ -14,9 +14,13 @@ function setInstanceDB(dbName) {
     cloudant.db.get(dbName).then(dataBase => {
         if (dataBase) { logger.info("Database " + dbName + " is working."); }
     }).catch(erro => {
-        cloudant.db.create(dbName);
-        logger.info("Database " + dbName + " was created!");
-        setInstanceDB(dbName);
+        cloudant.db.create(dbName).then(result => {
+            logger.info("Database " + dbName + " was created!");
+            setInstanceDB(dbName);
+        })
+        .catch(erro=>{
+            logger.error("ERROR when creating database " + dbName + ".");
+        });
     });
 }
 
