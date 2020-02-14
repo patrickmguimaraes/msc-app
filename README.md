@@ -44,4 +44,4 @@ npm run dev
 
 ##### Endpoints
 
-The application is running at: `http://localhost:3000/` in your browser.
+The application is configureted to run on `http://localhost:3000/`.
