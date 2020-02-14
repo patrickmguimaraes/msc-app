@@ -9,8 +9,8 @@
 This is where your local configuration is stored for Cloudant.
 ```
 {
-  "cloudant_username": "b431f997-554d-4585-a27e-401a7e690b62-bluemix", // cloudant username
-  "cloudant_password": "4db704814b107127a32b7f2f093f933e8480af0e6b34b71df8c851940de50b94", // cloudant password
+  "cloudant_username": "", // cloudant username
+  "cloudant_password": "", // cloudant password
   "cloudant_url": "https://cloudantHost.bluemix.com" // cloudant url
 }
 ```
