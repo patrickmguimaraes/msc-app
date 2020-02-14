@@ -105,7 +105,8 @@ module.exports = function (app) {
               saveTicket = {
                 id_user: id_user,
                 description: "",
-                status: "active"
+                status: "active",
+                date: new Date()
               }
               return res.json(data);
             }

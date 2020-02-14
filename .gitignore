@@ -2,6 +2,7 @@ node_modules
 node_modules_linux
 coverage
 server/config/config.json
+config.json
 server/localdev-config.json
 vcap-local.js
 credentials.json

@@ -20,6 +20,9 @@ function getAll(req, res) {
         }
         else {
             ticketService.getAll(req.params._id).then(function (tickets) {
+                tickets.sort(function(a, b) { 
+                    return new Date(a.date) - new Date(b.date)
+                });
                 res.send(tickets);
             }).catch(function (error) {
                 logger.error(error);
