@@ -16,18 +16,21 @@ The project contains IBM Cloudant to be created. First you have to have an IBM C
 
 Service credentials are taken from IBM Cloudant and configureted in `./server/config/config.js` (startting with CLOUDANT_)
 
+TABLES: The system will automatically create two tables on your Cloudnat (user and ticket).
+
 The Watson Assistant credentials is alread configureted. If you want to point to another Assistant, plese create these intents: #create_ticket (Ask for create a ticket), #ticket_description (Ask for type a description for the ticket), #see_tickets (Ask for see all tickets), #ticket_number ask for bringing a ticket description. To point to another assistent, change pre configureted credentials on `./server/config/config.js`.
 
 You will also need to create a secret key on `./server/config/config.js` for JWT configuration on the fild (secret)
 
-<a name="run"></a>
-### Run
 #### Using local environment
 This is a Node.js project, configureted in a development environment. The first thing you have to do is to install all the dependencies required. To do it, run:
 
 ```bash
 npm install
 ```
+
+<a name="run"></a>
+### Run
 
 If you do not have all of the tools installed on your computer yet and you want to compile and run your application, you can run the following script. Your application will be compiled with Docker containers. Run:
 
@@ -36,15 +39,12 @@ bx dev build
 bx dev run
 ```
 
-To only run you application, plese choose one option:
+To only run your application, please choose one option:
 
 ```bash
 npm start
 npm run dev
 ```
-
-#### Using your local development environment
-
 
 ##### Endpoints
 
