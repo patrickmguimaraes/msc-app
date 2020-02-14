@@ -16,9 +16,9 @@ The project contains IBM Cloudant to be created. First you have to have an IBM C
 
 Service credentials are taken from IBM Cloudant and configureted in `./server/config/config.js` (startting with CLOUDANT_)
 
-The Watson Assistant credentials is alread configureted. If you want to point to another Assistant, plese create these intents: #create_ticket (Ask for create a ticket), #ticket_description (Ask for type a description for the ticket), #see_tickets (Ask for see all tickets), #ticket_number ask for bringing a ticket description.
+The Watson Assistant credentials is alread configureted. If you want to point to another Assistant, plese create these intents: #create_ticket (Ask for create a ticket), #ticket_description (Ask for type a description for the ticket), #see_tickets (Ask for see all tickets), #ticket_number ask for bringing a ticket description. To point to another assistent, change pre configureted credentials on `./server/config/config.js`.
 
-You will also need to create a secret key for JWT configuration on the fild (secret)
+You will also need to create a secret key on `./server/config/config.js` for JWT configuration on the fild (secret)
 
 <a name="run"></a>
 ### Run
