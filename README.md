@@ -9,7 +9,6 @@ This is a Web project with ExpressJS on NodeJS, made to be a server application 
 ### Table of Contents
 * [Configuration](#configuration)
 * [Run](#run)
-* [Debug](#debug)
 
 <a name="configuration"></a>
 ### Configuration
