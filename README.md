@@ -4,6 +4,7 @@ This is a web project with Express on NodeJS, made to be a server application fo
 
 [![](https://img.shields.io/badge/IBM%20Cloud-powered-blue.svg)](https://bluemix.net)
 ![Platform](https://img.shields.io/badge/platform-NODE-lightgrey.svg?style=flat)
+![](https://img.shields.io/badge/Express-Framework-brightgreen)
 
 ### Table of Contents
 * [Configuration](#configuration)
