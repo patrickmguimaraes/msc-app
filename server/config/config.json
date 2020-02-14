@@ -6,7 +6,6 @@
   "ASSISTANT_ID": "0900219a-d7bb-4bbc-a216-f695a5d171f9",
   "ASSISTANT_IAM_APIKEY": "Hv3bhjsezH5YIAIGFiPr8led8YeJjTFEEolq7FKG9IZy",
   "ASSISTANT_IAM_URL": "https://api.us-south.assistant.watson.cloud.ibm.com/instances/384480cd-0289-4a0a-8c51-f8cef1c52a81/v2/assistants/0900219a-d7bb-4bbc-a216-f695a5d171f9/sessions",
-  "BEARER_TOKEN": "",
   "DISABLE_SSL_VERIFICATION": false,
   "PORT": 3000,
   "secret": "",

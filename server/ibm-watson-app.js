@@ -25,7 +25,7 @@ var ticketService = require('./services/ticket.service');
 var Q = require('q');
 var saveTicket = null;
 var lookTickets = null
-var printLoggerDetail = false;
+var printLoggerDetail = true;
 
 module.exports = function (app) {
   // Create the service wrapper
@@ -72,7 +72,7 @@ module.exports = function (app) {
     }
 
     var textIn = '';
-    var id_user = req.body.user.id_user;
+    var id_user = req.body.id_user;
 
     if (req.body.input) {
       textIn = req.body.input.text;
@@ -93,8 +93,6 @@ module.exports = function (app) {
         const status = err.code !== undefined && err.code > 0 ? err.code : 500;
         return res.status(status).json(err);
       }
-
-      logger.info(JSON.stringify(data));
 
       try {
         if (printLoggerDetail) { logger.info("The user typed: " + textIn); }
@@ -165,7 +163,7 @@ module.exports = function (app) {
                 return res.json(data);
               }).catch(function (error) {
                 if (printLoggerDetail) { logger.error("Erro looking for tickets " + error); }
-                data.output.generic[0].text = "Unfortunally the system couldn't find tickets. Try again soon.";
+                data.result.output.generic[0].text = "Unfortunally the system couldn't find tickets. Try again soon.";
                 return res.json(data);
               });
             }
@@ -181,7 +179,7 @@ module.exports = function (app) {
               var entityValue = data.result.output.entities[0].value;
               var genericArray = [];
               var description = lookTickets[entityValue-1].description;
-              logger.info(description);
+              
               var newDescription = {
                 response_type: 'text',
                 text: description
@@ -190,13 +188,12 @@ module.exports = function (app) {
               genericArray.push(newDescription);
               genericArray.push(data.result.output.generic[1]);
               data.result.output.generic = genericArray;
-              logger.info(JSON.stringify(data));
+              
               return res.json(data);
             }
           });
         }
         else {
-          logger.info("Didn't get it");
           saveTicket = null;
           return res.json(data);
         }
@@ -211,22 +208,17 @@ module.exports = function (app) {
   function searchTicketIntent(response, intentToLookFor) {
     var deferred = Q.defer();
     response = JSON.parse(JSON.stringify(response));
-    logger.info(response);
+    
     if (printLoggerDetail) { logger.info("Looking for " + intentToLookFor + " in ==> " + response); }
-    logger.info(response.output);
-    if (response.output) {
-      logger.info(response.output.intents);
-    }
 
     if (response.output && response.output.intents) {
       if (printLoggerDetail) { logger.info("Intent list found: " + response.output.intents); }
       response.output.intents.forEach(intentItem => {
-        logger.info(intentItem);
 
         if (printLoggerDetail) { logger.info("Comparing: " + intentItem.intent + " with " + intentToLookFor); }
         if (intentItem && intentItem.intent) {
           var intentItemString = intentItem.intent;
-          logger.info(intentItemString == intentToLookFor);
+          
           if (intentItemString == intentToLookFor) {
             deferred.resolve(true);
             return deferred.promise;
