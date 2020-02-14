@@ -1,6 +1,6 @@
 ## IBM MSC SERVER
 
-This is a web project with Express on NodeJS, made to be a server application for the MSC. When configureted and running, it listens GET and POST calls, managing informations stored on IBM Cloudant.
+This is a web project configureted with Express framework for Node.js, made to be a server application for the MSC. When configureted and running, it listens GET and POST calls, managing informations stored on IBM Cloudant.
 
 [![](https://img.shields.io/badge/IBM%20Cloud-powered-blue.svg)](https://bluemix.net)
 ![Platform](https://img.shields.io/badge/platform-NODE-lightgrey.svg?style=flat)
