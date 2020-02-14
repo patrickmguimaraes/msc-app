@@ -2,7 +2,6 @@
 
 This is a Web project with ExpressJS on NodeJS, made to be a server application for the MSC. When configureted and running, it listens GET and POST calls, managing informations stored on IBM Cloudant.
 
-[![](https://github.com/patrickmguimaraes)]
 [![](https://img.shields.io/badge/IBM%20Cloud-powered-blue.svg)](https://bluemix.net)
 ![Platform](https://img.shields.io/badge/platform-NODE-lightgrey.svg?style=flat)
 
