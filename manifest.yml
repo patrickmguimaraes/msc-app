@@ -2,7 +2,7 @@
 applications:
 - instances: 1
   timeout: 180
-  name: IBMMSCPATRICK
+  name: MSC
   buildpack: sdk-for-nodejs
   command: npm start
   memory: 256M
